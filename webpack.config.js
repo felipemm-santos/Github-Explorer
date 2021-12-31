@@ -1,12 +1,18 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-const { dirname } = require("path");
+
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode: "development",
+  mode: isDevelopment ? "development" : "production",
+
+  // Facilita para encontrar erros no programa
+  devtool: isDevelopment ? "eval-source-map" : "source-map",
+
   // entry -> Arquivo de entrada
   // __dirname -> diretório do arquivo
   entry: path.resolve(__dirname, "src", "index.jsx"),
+
   // output -> arquivo de saída
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -16,6 +22,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  //  cria um servidor de desenvolvimento para atualizar automaticamente as mudanças no código
   devServer: {
     static: {
       directory: path.resolve(__dirname, "public"),
@@ -33,6 +40,11 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
