@@ -4,15 +4,15 @@
 export function RepositoryItem(props) {
   return (
     <li>
-      {/* props.repository?.name
+      {/* {props.repository?.name ?? "Nome"}
         o ? testa se a propiedade existe
         Se ela não exister o operador ?? permite deixar um valor default
         */}
 
-      <strong>{props.repository?.name ?? "Nome"}</strong>
-      <p>{props.repository?.description ?? "Descrição"}</p>
+      <strong>{props.repository?.name}</strong>
+      <p>{props.repository?.description}</p>
 
-      <a href="">{props.repository?.link ?? "Link"}</a>
+      <a href="">{props.repository?.html_ur}</a>
     </li>
   );
 }
