@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
+// Controla se o programa será executado em modo de desenvolvimento ou produção
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {

@@ -1,0 +1,40 @@
+section.repositoryList {
+  margin: 40px;
+
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    // Distancia os itens da lista uns ds outros
+    & + li {
+      // Adiciona margin top de 20px nas li's seguidas de outra li
+      //& referência o própio elemento
+      margin-top: 20px;
+    }
+    /* Outra forma de fazer
+      margin-bottom: 20px;
+      Tira margem do último item
+      &:last-child{
+          margin: 0;
+      }
+    */
+
+    p {
+      font-size: 14px;
+      color: rgb(182, 21, 21);
+      margin-top: 8px;
+    }
+
+    a{
+        display: inline-block;
+        margin-top: 16px;
+        text-decoration: none;
+        color: rgb(133, 85, 221);
+    }
+  }
+}
