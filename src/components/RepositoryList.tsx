@@ -3,8 +3,16 @@ import "../styles/repositories.scss";
 
 import { useEffect, useState } from "react";
 
+// Criar interface para tipar o estado do repositório
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
+}
+
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  // useState<Repository[]> -> generic
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     fetch("https://api.github.com/users/felipemm-santos/repos")

@@ -13,7 +13,7 @@ module.exports = {
 
   // entry -> Arquivo de entrada
   // __dirname -> diretório do arquivo
-  entry: path.resolve(__dirname, "src", "index.jsx"),
+  entry: path.resolve(__dirname, "src", "index.tsx"),
 
   // output -> arquivo de saída
   output: {
@@ -22,7 +22,7 @@ module.exports = {
   },
   // Lê js e jsx
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   //  cria um servidor de desenvolvimento para atualizar automaticamente as mudanças no código
   devServer: {
@@ -41,7 +41,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
